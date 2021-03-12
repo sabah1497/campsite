@@ -1,0 +1,25 @@
+<?php require('template/header.phtml') ?>
+
+<?php foreach ($view->campsiteDataSet as $campsiteData) {
+    $campsiteDataSet = $campsiteData;
+
+    echo $campsiteData->getNameID();
+    echo $campsiteData->getAddress();
+    echo $campsiteData->getContactDetails();
+    echo $campsiteData->getFacilitiesOffered();
+    echo $campsiteData->getOpeningDates();
+    echo $campsiteData->getVisitorRating();
+}
+     ?>
+
+    <td><img src="images/<?php
+foreach ($view->campsiteDataSet as $campsiteData) {
+    $campsiteDataSet = $campsiteData;
+
+    echo $campsiteData->getPhoto();
+
+}
+        ?> " alt=""/> </td>
+
+
+<?php require('template/footer.phtml') ?>

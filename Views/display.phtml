@@ -1,0 +1,117 @@
+<?php require('template/header.phtml') ?>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title> </title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+
+                    <?php foreach ($view->campsiteDataSet as $campsiteData)
+                    $campsiteDataSet = $campsiteData;
+                    ?>
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1">
+
+<!--                            <img src="/images/camping.jpg" />-->
+
+                            <?php
+                            //foreach ($view->campsiteDataSet as $campsiteData)
+                                echo '<img src="/images/' . $campsiteData->getPhoto() . '" alt="No Picture"/>'
+                            ?>
+                        </div>
+<!--                        <div class="tab-pane" id="pic-2"><img src="/images/england.jpg" /></div>-->
+<!--                        <div class="tab-pane" id="pic-3"><img src="/images/france.jpg" /></div>-->
+<!--                        <div class="tab-pane" id="pic-4"><img src="/images/italy.jpg" /></div>-->
+                    </div>
+<!--                    <ul class="preview-thumbnail nav nav-tabs">-->
+<!--                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="/images/camping.jpg" /></a></li>-->
+<!--                        <li><a data-target="#pic-2" data-toggle="tab"><img src="/images/england.jpg" /></a></li>-->
+<!--                        <li><a data-target="#pic-3" data-toggle="tab"><img src="/images/france.jpg" /></a></li>-->
+<!--                        <li><a data-target="#pic-4" data-toggle="tab"><img src="/images/italy.jpg" /></a></li>-->
+<!--                    </ul>-->
+
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">
+                        <?php
+                        //foreach ($view->campsiteDataSet as $campsiteData)
+                        {
+                            echo $campsiteData->getNameID();
+                        }
+                        ?>
+
+                    </h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <?php
+                           // foreach ($view->campsiteDataSet as $campsiteData)
+                            {
+                                echo $campsiteData->getAddress();
+                            }
+                            ?>
+
+                        </div>
+
+                    </div>
+                    <p class="product-description">
+
+                        <?php
+                        //foreach ($view->campsiteDataSet as $campsiteData)
+                        {
+                            echo 'Open: ' . $campsiteData->getOpeningDates();
+                        }
+                        ?>
+
+                    </p>
+                    <h4 class="price">
+                        <?php
+                        //foreach ($view->campsiteDataSet as $campsiteData)
+                        {
+                            echo 'Facilities Offered ' . $campsiteData->getFacilitiesOffered();
+                        }
+                        ?>
+                    </h4>
+                    <h4 class="price">
+                    <?php
+                    if(isset($_SESSION['login']))
+                    {
+                        echo 'Contact Details: ' . $campsiteData->getContactDetails();
+                    }
+                    else
+                    {
+                        echo '<a href="/register.php" class="button">Login to view contact details </a>';
+                    }
+                    ?>
+                    </h4>
+
+                    <div class="action">
+                         <button class="like btn btn-default" type="button" name="wish"><span class="fa fa-heart"></span></button>
+                    </div>
+
+                </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+<?php require('template/footer.phtml') ?>

@@ -1,0 +1,50 @@
+<?php require('template/header.phtml') ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form action="" method="post">
+
+    <br>
+    <br>
+    <br>
+
+    <p>
+        <label for="nameID">Campsite Name:</label>
+        <input type="text" name="nameID" id="nameID" required>
+    </p>
+
+    <p>
+        <label for="address"> Address:</label>
+        <input type="text" name="address" id="address" required>
+    </p>
+
+    <p>
+        <label for="contactDetails">Contact Details:</label>
+        <input type="text" name="contactDetails" id="contactDetails" required>
+    </p>
+
+    <p>
+        <label for="facilitiesOffered">Facilities Offered:</label>
+        <input type="text" name="facilitiesOffered" id="facilitiesOffered">
+    </p>
+
+    <p>
+        <label for="openingDates">opening Dates:</label>
+        <input type="text" name="openingDates" id="openingDates" required>
+    </p>
+
+    <p>
+        <label for="visitorRating">visitorRating:</label>
+        <input type="text" name="visitorRating" id="visitorRating"required>
+    </p>
+
+    <input type="submit" value="Add Records" name="add">
+</form>
+</body>
+</html>
+
+<?php require('template/footer.phtml') ?>

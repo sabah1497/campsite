@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/css/my-style.css" rel="stylesheet">
+
+
+</head>
+
+<body role="document">
+
+<div class="container">
+        <div  class="row">
+            <div id="title" class="col-xs-12">
+                <a href="/index.php">
+                    <img src="/images/logo.png" height="100" width="100" alt="Salford University" />
+                </a>
+                <?php
+                if(isset($_SESSION['login']))
+                {
+                    echo '<div class="pull-right"><a href="/logout.php" class="button"> Logout </a>';
+                }
+                else
+                {
+                   echo '<div class="pull-right"><a href="/register.php" class="button">login/Sign up </a>';
+                }
+                ?>
+
+            </div>
+
+        </div>
+
+            <!--        Navigation Bar Start-->
+
+    <div class="row">
+
+        <div id="menu" class="col-xs-6 col-sm-3 col-md-2">
+        <ul class="nav navbar_default nav-stacked">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/location.php">Locations</a></li>
+            <li><a href="/campsiteISv1.php">Campsites</a></li>
+            <li><a href="/wishlist.php">Favourites</a></li>
+<!--            <li><a href="/admin.php">Admin</a></li>-->
+            <?php
+            if(isset($_SESSION['admin'],$_SESSION['login']))
+            {
+                echo '<li><a href="/admin.php">Admin</a></li>';
+            }
+            else
+            {
+                echo '';
+            }
+            ?>
+
+        </ul>
+
+            <!--                    Search bar start -->
+
+<!--            <form class="searchform cf">-->
+<!--                <form action="/studentISv1.php">-->
+<!--                    <input type="text" placeholder="Search.." name="search">-->
+<!--                    <button type="submit">Submit</button>-->
+<!--            </form>-->
+<!--            </form>-->
+
+
+            <div class="searchform">
+<!--                <form action="/studentISv1.php">-->
+                    <form action="../../search.php" method="post">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit" name="submitSearch">Submit</button>
+                </form>
+            </div>
+
+
+
+            <!--                    Search bar end-->
+       </div>
+
+<!--        Navigation bar end -->
+
+
+
+    <div id="content" class="col-xs-6 col-sm-9 col-md-10">
+
+
+
